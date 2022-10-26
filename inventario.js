@@ -18,6 +18,19 @@ class Inventario{
 
     }
     buscar(codigo){
+      let buscado = null; 
+      if(this.primero === null){
+        return null;
+      }else{
+        let ultimo = this.primero;
+        while(ultimo !== null){
+          if(ultimo.codigo === codigo){
+            buscado = ultimo;
+          }
+          ultimo = ultimo.siguiente;
+        }
+      }
+      return buscado;
     }
       
     eliminar(codigo){
