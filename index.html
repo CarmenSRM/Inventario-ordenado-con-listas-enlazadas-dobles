@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+       <title>Inventario de Productos</title> 
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <meta name="title" content="Inventario de Productos">
+       <meta name="description" content="Realizar un inventario de productos por medio de vectores">    
+       <script src="./inventario.js"></script> 
+       <script src="./producto.js"></script>   
+    </head>
+    <body>
+        <header>
+            <h1><center>Inventario de Productos</center></h1>
+        </header>
+        <section>
+            <center> 
+            <article>
+                <br><form>
+                    <p>Búsqueda: <input id = "busqueda" ></p>
+                    <input  type="button"  id = "Buscar" value="Buscar">                            
+                    <input  type="button"  id = "Eliminar" value="Eliminar">
+                    <div id = "detalles1"> 
+
+                    </div>   
+                </form>      
+                
+                <br><form>
+                    
+                    <div>
+                        <p>Código: <br><br><input id="codigo"  type="number"></p> 
+                        <p>Nombre: <br><input  id="nombre" type="text"></p>        
+                        <p>Cantidad: <br><input id="cantidad"  type="number"></p>                             
+                        <p>Costo: <br><input id="costo"  type="number"></p>
+                    </div>
+                    
+                    <div class="botones">    
+                        <input type="button"  id = "Agregar"  value="Agregar">
+                        <input  type="button"  id = "Listar" value="Listar">
+                        <input  type="button"  id = "Listar Inverso" value="Listar Inverso">
+                        <input  type="button"  id = "Limpiar" value="Limpiar">
+                    </div>
+
+                    <div id = "detalles"> 
+
+                    </div>    
+                </form>
+            </center>
+            </article>
+        </section> 
+        <script src = "./app.js"></script>
+        <footer>
+        </footer>
+    </body>
+</html>
