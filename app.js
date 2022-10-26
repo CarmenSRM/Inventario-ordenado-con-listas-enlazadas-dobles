@@ -11,12 +11,12 @@ agregar.addEventListener('click', ()=>{
     if(!codigo || !nombre || !cantidad || !costo){
         document.getElementById('detalles').innerHTML= `<p>Es necesario llenar los campos de Código, Nombre, Cantidad y costo</p>`;
     }else{
-       if(inventario.buscar(codigo) !== null){
-            document.getElementById('detalles').innerHTML= `<p>El producto "${nombre}" no puede ser registrado <br> debido a que el código "${codigo}" ya existe</p>`;
-        }else{
+       //if(inventario.buscar(codigo) !== null){
+       //     document.getElementById('detalles').innerHTML= `<p>El producto "${nombre}" no puede ser registrado <br> debido a que el código "${codigo}" ya existe</p>`;
+       // }else{
             inventario.agregar(producto);
             document.getElementById('detalles').innerHTML= `<p>El producto "${nombre}" fue agregado correctamente</p>`;
-        }
+       // }
     }
 
 });
