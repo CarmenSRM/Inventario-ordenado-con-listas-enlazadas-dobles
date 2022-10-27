@@ -9,13 +9,17 @@ agregar.addEventListener('click', ()=>{
     let producto = new Producto(codigo, nombre, cantidad, costo);
 
     if(!codigo || !nombre || !cantidad || !costo){
-        document.getElementById('detalles').innerHTML= `<p>Es necesario llenar los campos de Código, Nombre, Cantidad y costo</p>`;
+        document.getElementById('detalles').innerHTML= `<p>Es necesario llenar los campos de Código, Nombre, Cantidad y Costo</p>`;
     }else{
        if(inventario.buscar(codigo) !== null){
             document.getElementById('detalles').innerHTML= `<p>El producto "${nombre}" no puede ser registrado <br> debido a que el código "${codigo}" ya existe</p>`;
         }else{
-            inventario.agregar(producto);
-            document.getElementById('detalles').innerHTML= `<p>El producto "${nombre}" fue agregado correctamente</p>`;
+            if(inventario.agregar(producto) !== false){
+                document.getElementById('detalles').innerHTML= `<p>El producto "${nombre}" fue agregado correctamente</p>`;
+            }else{
+                document.getElementById('detalles').innerHTML= `<p>El producto "${nombre}" no fue agragado correctamente. <br> Intentelo denuevo.</p>`;
+            }
+            
         }
     }
 
@@ -77,12 +81,11 @@ listarI.addEventListener('click', ()=>{
 
 const limpiar = document.getElementById('Limpiar');
 limpiar.addEventListener('click', ()=> {
-    document.getElementById('busqueda').value = " ";
-    document.getElementById('codigo').value = " ";
-    document.getElementById('nombre').value = " ";
-    document.getElementById('cantidad').value = " ";
-    document.getElementById('costo').value = " ";
-    document.getElementById('posicion').value = " ";
-    document.getElementById('detalles').innerHTML = " ";
-    document.getElementById('detalles1').innerHTML = " ";
+    document.getElementById('busqueda').value = "";
+    document.getElementById('codigo').value = "";
+    document.getElementById('nombre').value = "";
+    document.getElementById('cantidad').value = "";
+    document.getElementById('costo').value = "";
+    document.getElementById('detalles').innerHTML =`<p> </p>`;
+    document.getElementById('detalles1').innerHTML = `<p> </p>`;
 });

@@ -8,13 +8,50 @@ class Inventario{
     let nuevo = producto;
     if(this.primero === null){
       this.primero = nuevo;
-      this.ultimo = nuevo
-    }else{
-      this.ultimo.siguiente = nuevo;
-      nuevo.anterior = this.ultimo;
-        
       this.ultimo = nuevo;
+      return true;
+    }else{
+      return this.ordenar(producto);
     }
+  }
+
+  ordenar(nuevo){
+    let actual = this.primero;
+    let aux = null;
+    let agregado = false;
+
+    while(actual !== null){
+      if(actual.anterior !== null){
+        if(actual.codigo < nuevo.codigo){
+          if(actual.siguiente !== null){
+            if(actual.siguiente.codigo > nuevo.codigo){
+              aux = actual.siguiente;
+              actual.siguiente = nuevo;
+              nuevo.anterior = actual;
+              nuevo.siguiente = aux;
+              aux.anterior = nuevo
+              agregado = true;
+            }
+          }else{
+            actual.siguiente = nuevo;
+            nuevo.anterior = actual;
+            agregado = true;
+            this.ultimo = nuevo;
+          }
+        }
+
+      }else{
+        if(actual.codigo > nuevo.codigo){
+          actual.anterior = nuevo;
+          nuevo.siguiente = actual;
+          this.primero = nuevo;
+          agregado = true;
+        }
+      }
+
+      actual = actual.siguiente;
+    }
+    return agregado;
   }
 
   buscar(codigo){
